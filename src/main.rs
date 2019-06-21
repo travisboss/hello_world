@@ -31,4 +31,15 @@ fn calculate_length(s: String) -> (String, usize) {
     let length = s.len(); // len() returns the length of a String
 
     (s, length)
+
+}
+
+fn hello_world_borrow() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
 }
