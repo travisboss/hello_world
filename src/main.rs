@@ -16,6 +16,18 @@ fn hello_world_clone() {
 
     println!("s1 = {}, s2 = {}", s1, s2);
 
+    hello_world_borrow();
+}
+
+fn hello_world_borrow() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+
     hello_world_scope();
 }
 
@@ -32,14 +44,4 @@ fn calculate_length(s: String) -> (String, usize) {
 
     (s, length)
 
-}
-
-fn hello_world_borrow() {
-    let mut s = String::from("hello");
-
-    change(&mut s);
-}
-
-fn change(some_string: &mut String) {
-    some_string.push_str(", world");
 }
